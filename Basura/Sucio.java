@@ -3,26 +3,27 @@ package Basura;
 import java.util.Scanner;
 
 public class Sucio {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Introduce el día de la semana (lunes a viernes): ");
-        String diaSemana = scanner.nextLine().toLowerCase();
-        System.out.print("Introduce la hora (formato 24 horas): ");
-        int horas = scanner.nextInt();
-        System.out.print("Introduce los minutos: ");
-        int minutos = scanner.nextInt();
-
-        int minutosHastaFinDeSemana = ((switch (diaSemana) {
-            case "lunes" -> 0;
-            case "martes" -> 1;
-            case "miércoles" -> 2;
-            case "jueves" -> 3;
-            case "viernes" -> 4;
-            default -> 0;
-        }
-        ) * 24 * 60 + (horas * 60) + minutos - ((4 * 24 + 15) * 60));
-
-        System.out.println("Minutos hasta el fin de semana: " + minutosHastaFinDeSemana);
-    }
+public static void main(String[] args) {
+System.out.print("Por favor, introduzca la altura de la pirámide: ");
+int alturaIntroducida = Integer.parseInt(System.console().readLine());
+System.out.print("Introduzca el carácter de relleno: ");
+String relleno = System.console().readLine();
+int planta = 1;
+int longitudDeLinea = 1;
+int espacios = alturaIntroducida-1;
+while (planta <= alturaIntroducida) {
+// inserta espacios
+for (int i = 1; i <= espacios; i++) {
+System.out.print(" ");
+}
+// pinta la línea
+for (int i = 1; i <= longitudDeLinea; i++) {
+System.out.print(relleno);
+}
+System.out.println();
+planta++;
+espacios--;
+longitudDeLinea += 2;
+}
+}
 }
